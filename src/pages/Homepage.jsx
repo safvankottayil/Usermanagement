@@ -32,7 +32,7 @@ function Homepage() {
       .catch((err) => {
         console.log(err);
       });
-  }, [changePage]);
+  }, [changePage,Token]);
   return (
     <div className="flex flex-col w-full min-h-screen dark:bg-gray-900 dark:text-white bg-white">
       <Navbar Show={Show} SetShow={setshow}  setSerach={setSerach} />
