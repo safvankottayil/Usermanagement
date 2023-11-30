@@ -8,6 +8,7 @@ import Sidebar from "../components/SideBar/Sidebar";
 function Homepage() {
   const { Token } = useSelector((state) => state.Client);
   const [Show,setshow]=useState(false)
+  const [count,setcount]=useState(0)
   const [Search, setSerach] = useState("");
   const [Users, SetUsers] = useState([]);
   const [pagination, setpagination] = useState({ prev: false, next: true });
@@ -33,14 +34,14 @@ function Homepage() {
         console.log(err);
       });
     }
-  }, [changePage,Token]);
+  }, [changePage,Token,count]);
   useEffect(()=>{
     setTimeout(() => {
       if(Users[0]){
       }else{
-      SetchangePage(1)
+      setcount(count+1)
       }
-    }, 1000);
+    }, 2000);
   },[])
   
   return (
