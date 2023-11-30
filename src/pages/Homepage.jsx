@@ -34,6 +34,15 @@ function Homepage() {
       });
     }
   }, [changePage,Token]);
+  useEffect(()=>{
+    setTimeout(() => {
+      if(Users[0]){
+      }else{
+      SetchangePage(1)
+      }
+    }, 1000);
+  },[])
+  
   return (
     <div className="flex flex-col w-full min-h-screen dark:bg-gray-900 dark:text-white bg-white">
       <Navbar Show={Show} SetShow={setshow}  setSerach={setSerach} />
