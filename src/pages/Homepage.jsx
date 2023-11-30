@@ -7,7 +7,6 @@ import Navbar from "../components/Navbar/Navbar";
 import Sidebar from "../components/SideBar/Sidebar";
 function Homepage() {
   const { Token } = useSelector((state) => state.Client);
-  console.log(typeof Token);
   const [Show,setshow]=useState(false)
   const [Search, setSerach] = useState("");
   const [Users, SetUsers] = useState([]);
@@ -15,6 +14,7 @@ function Homepage() {
   const [changePage, SetchangePage] = useState(1);
   const dispach = useDispatch();
   useEffect(() => {
+    if(Token){
     instance
       .get("/users/?page=" + changePage)
       .then((res) => {
@@ -32,6 +32,7 @@ function Homepage() {
       .catch((err) => {
         console.log(err);
       });
+    }
   }, [changePage,Token]);
   return (
     <div className="flex flex-col w-full min-h-screen dark:bg-gray-900 dark:text-white bg-white">
